@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário simples com restrições no HTML</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="sec-form">
+        <div class="container">
+            <img src="logo.png" alt="">
+            <h2>Cadastro</h2>
+            <form method="post" action="processa.php">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" maxlength="100" pattern="[A-Za-zÀ-ÿ ]{3,}" required placeholder="Digite seu nome">
+                
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" maxlength="40" required placeholder="Digite seu e-mail">
+                
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" minlength="8" pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" required placeholder="Crie uma senha segura">
+                
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required placeholder="000.000.000-00" title="Formato correto: 000.000.000-00">
+                
+                
+                <label for="informacoes">Deseja receber informações?</label>
+                <select name="info" id="info">
+                    <option value="sim">Sim, desejo receber informações.</option>
+                    <option value="nao">Não, obrigado.</option>
+                </select>
+
+                <button type="submit" id="enviar">Cadastre-se</button>
+            </form>
+        </div>
+    </section>
+
+    
+    <script>
+        let btn = window.document.getElementById("enviar")
+        let section = window.document.getElementById("sec-form")
+
+        btn.addEventListener("mouseenter", () => {
+            section.style.background = "linear-gradient(#671919, #3b447d)"
+        })
+
+        btn.addEventListener("mouseleave", () => {
+            section.style.background = ""
+        })
+    </script>
+</body>
+</html>
